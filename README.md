@@ -15,21 +15,6 @@ Open `frontend/index.html` to interact.
 
 ## Project Architecture
 
-## Workflow
-
-```
-User Input (game state JSON) → Frontend → Backend API → Model → Prediction → Frontend Display
-```
-
-| Component          | Input               | Output                   |
-| ------------------ | ------------------- | ------------------------ |
-| `index.html` / JS  | JSON game state     | Predicted move displayed |
-| `api.py`           | JSON → Python dict  | JSON prediction          |
-| `preprocessing.py` | Raw game state dict | Vector (model input)     |
-| `model.py`         | Encoded tensor      | Predicted move (label)   |
-
----
-
 ## 1. Frontend (HTML/CSS/JS)
 
 ### `index.html`
