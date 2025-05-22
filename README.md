@@ -1,5 +1,8 @@
 # Pokémon TCG Opponent Move Predictor
 
+## Software Architecture
+![image](https://github.com/user-attachments/assets/3902b82e-61c3-4a2b-81f3-0d678b7e96ae)
+
 ## Run App
 
 Run backend:
@@ -27,7 +30,7 @@ User Input (game state JSON) → Frontend → Backend API → Model → Predicti
 
 ---
 
-## 1. Frontend (HTML/JS)
+## 1. Frontend (HTML/CSS/JS)
 
 ### `index.html`
 
