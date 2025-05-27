@@ -1,113 +1,65 @@
-# Pokémon TCG Opponent Move Predictor
+# Pokémon TCG Rarity Predictor
+
+## Overview
+A web app that predicts the **rarity** of a Pokémon card using deep learning. Input card features, and the model returns one of: `Common`, `Uncommon`, `Rare`, etc.
 
 ## Software Architecture
 ![image](https://github.com/user-attachments/assets/3902b82e-61c3-4a2b-81f3-0d678b7e96ae)
 
-## Run App
 
-Run backend:
+## Tech Stack
 
+| Component   | Tech               |
+|-------------|--------------------|
+| Frontend    | HTML, CSS, JS      |
+| Backend     | FastAPI (Python)   |
+| Model       | TensorFlow / Keras |
+| Deployment  | Vercel + Render    |
+
+---
+
+## Run App Instruction
+
+### 1. Install backend dependencies
+
+```bash
+pip install -r requirements.txt
 ```
+
+### 2. Run backend server
+
+```bash
 uvicorn backend.api:app --reload
 ```
 
-Open `frontend/index.html` to interact.
+### 3. Launch frontend
 
-## Project Architecture
-
-## 1. Frontend (HTML/CSS/JS)
-
-### `index.html`
-
-- Textarea for user input (game state JSON)
-- Button to send data to backend
-- Paragraph to display prediction
-
-### `app.js`
-
-Input:
-
-```js
-const gameState = document.getElementById("gameState").value;
-```
-
-- Raw JSON string entered by user
-
-Output:
-
-```js
-const response = await fetch("http://localhost:8000/predict", { ... });
-document.getElementById("result").innerText = "Predicted Move: " + data.prediction;
-```
-
-- Sends JSON to backend and displays predicted move
+Open `frontend/index.html` in a browser.
 
 ---
 
-## 2. Backend (FastAPI)
-
-### `api.py`
-
-```python
-@app.post("/predict")
-async def get_prediction(request: Request):
-    data = await request.json()
-    prediction = predict(model, data)
-    return {"prediction": prediction}
-```
-
-#### Input (from frontend)
+## Example Card Input
 
 ```json
 {
-  "state": { "player_hp": 60, "active_card": "Pikachu" },
-  "action": "Attack",
-  "next_state": { "opponent_hp": 30 }
+  "name": "Charizard",
+  "hp": 150,
+  "types": ["Fire"],
+  "supertype": "Pokémon",
+  "subtypes": ["Stage 2"],
+  "convertedRetreatCost": 3,
+  "generation": "Base",
+  "abilities": [{"name": "Energy Burn"}],
+  "attacks": [{"name": "Fire Spin", "damage": "100"}]
 }
 ```
 
-#### Output (to frontend)
+Returns:
 
 ```json
 {
-  "prediction": "Thunderbolt"
+  "rarity": "Rare Holo"
 }
 ```
-
----
-
-## 3. Model (PyTorch)
-
-### `model.py`
-
-```python
-class MovePredictor(nn.Module):
-    def forward(self, x):
-        out, _ = self.lstm(x)
-        return self.fc(out[:, -1, :])
-```
-
-- Input: Tensor `[batch_size, sequence_length, input_size]`
-- Output: Predicted label from logits
-
-### `predict()` Function
-
-```python
-def predict(model, input_data):
-    return "opponent_move"
-```
-
----
-
-## 4. Data Preprocessing
-
-### `preprocessing.py`
-
-```python
-def encode_game_state(state):
-    return [0] * 128
-```
-
-- Converts game state dict to vector for model input
 
 ---
