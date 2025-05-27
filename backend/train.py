@@ -1,9 +1,9 @@
 import torch
-from model import MovePredictor
+from model import RarityPredictor
 
 def train():
     # Dummy training loop
-    model = MovePredictor(128, 256, 10)
+    model = RarityPredictor(128, 256, 10)
     print("Training model...")
 
 if __name__ == "__main__":

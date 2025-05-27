@@ -1,22 +1,14 @@
 # Pokémon TCG Rarity Predictor
 
 ## Overview
+
 A web app that predicts the **rarity** of a Pokémon card using deep learning. Input card features, and the model returns one of: `Common`, `Uncommon`, `Rare`, etc.
+This app is practical for Pokémon market design as it lets the model predict card rarity — a key factor in determining market value.
 
 ## Software Architecture
+
 ![image](https://github.com/user-attachments/assets/3902b82e-61c3-4a2b-81f3-0d678b7e96ae)
-
-
-## Tech Stack
-
-| Component   | Tech               |
-|-------------|--------------------|
-| Frontend    | HTML, CSS, JS      |
-| Backend     | FastAPI (Python)   |
-| Model       | TensorFlow / Keras |
-| Deployment  | Vercel + Render    |
-
----
+[Dataset can be found here](https://www.kaggle.com/datasets/adampq/pokemon-tcg-all-cards-1999-2023/data)
 
 ## Run App Instruction
 
@@ -49,8 +41,8 @@ Open `frontend/index.html` in a browser.
   "subtypes": ["Stage 2"],
   "convertedRetreatCost": 3,
   "generation": "Base",
-  "abilities": [{"name": "Energy Burn"}],
-  "attacks": [{"name": "Fire Spin", "damage": "100"}]
+  "abilities": [{ "name": "Energy Burn" }],
+  "attacks": [{ "name": "Fire Spin", "damage": "100" }]
 }
 ```
 
