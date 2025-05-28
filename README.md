@@ -7,7 +7,7 @@ This app is practical for Pokémon market design as it lets the model predict ca
 
 ## Software Architecture
 
-![image](https://github.com/user-attachments/assets/3902b82e-61c3-4a2b-81f3-0d678b7e96ae)
+![image](![image](https://github.com/user-attachments/assets/597091d6-37c2-4c8d-935d-3ef325f45cfe))
 
 ## Kaggle Dataset
 [Pokemon TCG All Cards 1999 - 2023](https://www.kaggle.com/datasets/adampq/pokemon-tcg-all-cards-1999-2023/data)
