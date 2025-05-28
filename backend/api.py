@@ -4,12 +4,21 @@ import joblib
 import numpy as np
 from backend.preprocessing import extract_card_features
 
-app = FastAPI()
+app = FastAPI(
+    title="Pokemon TCG Move Predictor API",
+    description="API for predicting Pokemon TCG moves",
+    version="0.1.0"
+)
+
+origins = [
+    "http://localhost:5500",
+    "http://localhost:8000",
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
+    allow_origins=origins,
+    allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
 
