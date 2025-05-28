@@ -26,7 +26,7 @@ app.add_middleware(
 def root():
     return {"message": "Welcome to the Pokemon TCG Card Rarity Predictor API"}
 
-@app.post("/predict")
+@app.post("/predict-rarity")
 async def predict_rarity(request: Request):
     # TODO: Load model and return dummy prediction
     return {"rarity": "Dummy Rarity"}
